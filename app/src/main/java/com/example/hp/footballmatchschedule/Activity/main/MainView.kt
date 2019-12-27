@@ -1,18 +1,10 @@
-package com.example.hp.footballmatchschedule.Activity.main
+package com.example.hp.footballmatchschedule.activity.main
 
-import com.example.hp.footballmatchschedule.Model.MatchEvent
+import com.example.hp.footballmatchschedule.model.MatchEvent
+import com.example.hp.footballmatchschedule.activity.base.BaseView
 
-interface MainView {
-
-    interface View{
-        fun hideLoading()
-        fun showLoading()
-        fun displayFootballMatch(matchList:List<MatchEvent>)
-    }
-
-    interface Presenter{
-        fun getFootballMatchData()
-
-        fun getFootballUpcomingData()
-    }
+interface MainView : BaseView{
+    fun hideLoading()
+    fun showLoading()
+    fun displayFootballMatch(matchList:List<MatchEvent>)
 }

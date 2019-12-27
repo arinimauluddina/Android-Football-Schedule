@@ -1,18 +1,11 @@
-package com.example.hp.footballmatchschedule.Activity.detail
+package com.example.hp.footballmatchschedule.activity.detail
 
-import com.example.hp.footballmatchschedule.Model.Teams
-import java.util.*
+import com.example.hp.footballmatchschedule.activity.base.BaseView
+import com.example.hp.footballmatchschedule.model.Teams
 
-interface DetailView {
+interface DetailView : BaseView{
 
-    interface View{
-        fun displayTeamBadgeHome(team : Teams)
-        fun displayTeamBadgeAway(team: Teams)
-    }
+    fun displayTeamBadgeHome(team : Teams)
+    fun displayTeamBadgeAway(team: Teams)
 
-    interface Presenter{
-
-        fun getTeamsBadgeAway(id :String)
-        fun getTeamsBadgeHome(id: String)
-    }
 }

@@ -1,358 +1,362 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:padding="20dp">
 
-    <LinearLayout
-
-            android:id="@+id/ll_detail"
+    <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-        <ProgressBar
-                android:id="@+id/progress_bar_detail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        <TextView
-                android:id="@+id/match_date"
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtDateSchedule"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center" />
+                android:layout_gravity="center_horizontal"
+                tools:text="28 Oktober 2018"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:gravity="center"/>
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="120dp"
                 android:layout_margin="16dp">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_home"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_weight="3"
-                    android:contentDescription="@string/home_badge"
-                    android:maxHeight="115dp"
-                    android:maxWidth="115dp" />
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"/>
 
-            <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="120dp"
-                    android:layout_weight="3"
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="@string/vs" />
+                    android:text="@string/vs"
+                    android:textSize="14sp"/>
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_away"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_weight="3"
-                    android:contentDescription="@string/away_badge"
-                    android:maxHeight="115dp"
-                    android:maxWidth="115dp" />
-        </LinearLayout>
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtHomeDetail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Arsenal Fc"
+                    android:textSize="20sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtAwayDetail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Arsenal Fc"
+                    android:textSize="20sp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtHomeScore"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="50sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtAwayScore"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="50sp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
-                android:background="#FF0000FF" />
+                android:background="#FF0000FF"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"/>
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp">
-
-            <TextView
-                    android:id="@+id/home_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="14dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:layout_marginRight="14dp" />
-
-            <TextView
-                    android:id="@+id/away_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="14dp" />
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp">
-
-            <TextView
-                    android:id="@+id/home_score_match"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold" />
-
-            <TextView
-                    android:id="@+id/away_score_match"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold" />
-        </LinearLayout>
-
-        <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#FF0000FF" />
-
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp">
 
-            <TextView
-                    android:id="@+id/home_shots"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:layout_weight="3"
-                    android:gravity="start" />
-
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtHomeShoot"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_weight="2"
+                    android:gravity="start"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/shots"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
-            <TextView
-                    android:id="@+id/away_shot"
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtAwayShoot"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:layout_weight="3"
-                    android:gravity="end" />
-        </LinearLayout>
+                    android:layout_weight="2"
+                    android:gravity="end"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <View
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#616161" />
+                android:layout_height="0.5dp"
+                android:background="#FF0000FF"/>
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp">
 
-            <TextView
-                    android:id="@+id/home_goals"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="start" />
-
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtHomeGoal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_weight="2"
+                    android:gravity="start"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/goaler"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
-            <TextView
-                    android:id="@+id/away_goals"
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtAwayGoal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="end" />
-        </LinearLayout>
+                    android:layout_weight="2"
+                    android:gravity="end"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <View
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#616161" />
+                android:layout_height="0.5dp"
+                android:background="#FF0000FF"/>
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp">
 
-            <TextView
-                    android:id="@+id/home_goalkeeper"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="start" />
-
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtHomeGoalKeeper"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_weight="2"
+                    android:gravity="start"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/goalkeeper"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
-            <TextView
-                    android:id="@+id/away_goalkeeper"
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtAwayGoalKeeper"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="end" />
-        </LinearLayout>
+                    android:layout_weight="2"
+                    android:gravity="end"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <View
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#616161" />
+                android:layout_height="0.5dp"
+                android:background="#FF0000FF"/>
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp">
 
-            <TextView
-                    android:id="@+id/home_defense"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="start" />
-
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtHomeDefense"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_weight="2"
+                    android:gravity="start"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/defense"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
-            <TextView
-                    android:id="@+id/away_defense"
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtAwayDefense"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="end" />
-        </LinearLayout>
+                    android:layout_weight="2"
+                    android:gravity="end"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <View
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#616161" />
+                android:layout_height="0.5dp"
+                android:background="#FF0000FF"/>
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp">
 
-            <TextView
-                    android:id="@+id/home_midfield"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="start" />
-
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtHomeMidField"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_weight="2"
+                    android:gravity="start"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/midfield"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
-            <TextView
-                    android:id="@+id/away_midfield"
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtAwayMidField"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="end" />
-        </LinearLayout>
+                    android:layout_weight="2"
+                    android:gravity="end"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <View
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#616161" />
+                android:layout_height="0.5dp"
+                android:background="#FF0000FF"/>
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp">
 
-            <TextView
-                    android:id="@+id/home_forward"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="start" />
-
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtHomeFoward"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_weight="2"
+                    android:gravity="start"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/forward"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
-            <TextView
-                    android:id="@+id/away_forward"
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtAwayFoward"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="end" />
-        </LinearLayout>
+                    android:layout_weight="2"
+                    android:gravity="end"
+                    android:text="jhj"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <View
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#616161" />
+                android:layout_height="0.5dp"
+                android:background="#FF0000FF"/>
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp">
-
-            <TextView
-                    android:id="@+id/home_substitutes"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="start" />
-
-            <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="@string/substitutes"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-            <TextView
-                    android:id="@+id/away_substitutes"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="end" />
-        </LinearLayout>
-
-
-    </LinearLayout>
-</ScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>

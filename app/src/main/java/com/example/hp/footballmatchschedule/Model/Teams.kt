@@ -1,4 +1,4 @@
-package com.example.hp.footballmatchschedule.Model
+package com.example.hp.footballmatchschedule.model
 
 import com.google.gson.annotations.SerializedName
 

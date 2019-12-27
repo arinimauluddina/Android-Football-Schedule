@@ -1,32 +1,38 @@
-package com.example.hp.footballmatchschedule.Activity.main
+package com.example.hp.footballmatchschedule.activity.main
 
-import com.example.hp.footballmatchschedule.Model.MatchEventPresenter
+import com.example.hp.footballmatchschedule.activity.base.BasePresenter
+import com.example.hp.footballmatchschedule.data.repository.MatchEventRepository
+import com.example.hp.footballmatchschedule.utils.ID
+import com.example.hp.footballmatchschedule.utils.logI
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class MainPresenter(val mView : MainView.View, val matchEventPresenter: MatchEventPresenter) : MainView.Presenter {
+class MainPresenter (val matchEventRepository: MatchEventRepository) : BasePresenter<MainView>(){
 
-    val compositeDisposable = CompositeDisposable()
-
-    override fun getFootballUpcomingData() {
-        mView.showLoading()
-        compositeDisposable.add(matchEventPresenter.getUpcomingMatch( "4332")
+    fun getFootballMatchData(){
+        mView?.showLoading()
+        compositeDisposable.add(matchEventRepository.getFootballMatch(ID)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .subscribe{
-                mView.displayFootballMatch(it.events)
-                mView.hideLoading()
+            .subscribe(){
+                logI("msg", it.events.toString())
+
+                mView?.displayFootballMatch(it.events)
+                mView?.hideLoading()
             })
     }
-    override fun getFootballMatchData(){
-        mView.showLoading()
-        compositeDisposable.add(matchEventPresenter.getFootballMatch( "4332")
+
+    fun getFootballUpcomingData(){
+        mView?.showLoading()
+        compositeDisposable.add(matchEventRepository.getUpcomingMatch(ID)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .subscribe{
-                mView.displayFootballMatch(it.events)
-                mView.hideLoading()
+            .subscribe(){
+                logI("msg", it.events.toString())
+
+                mView?.displayFootballMatch(it.events)
+                mView?.hideLoading()
             })
     }
+
 }

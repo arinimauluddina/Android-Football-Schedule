@@ -1,52 +1,53 @@
-package com.example.hp.footballmatchschedule.Activity.main
+package com.example.hp.footballmatchschedule.activity.main
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.text.method.TextKeyListener.clear
-import com.example.hp.footballmatchschedule.Adapter.TeamsAdapter
-import com.example.hp.footballmatchschedule.Api.TheSportDBApi
-import com.example.hp.footballmatchschedule.Api.TheSportDBRest
-import com.example.hp.footballmatchschedule.Model.MatchEvent
-import com.example.hp.footballmatchschedule.Model.MatchEventPresenter
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hp.footballmatchschedule.model.MatchEvent
 import com.example.hp.footballmatchschedule.R
-import com.example.hp.footballmatchschedule.R.id.lastMatch
-import com.example.hp.footballmatchschedule.R.id.nextMatch
-import com.example.hp.footballmatchschedule.Utils.invisible
-import com.example.hp.footballmatchschedule.Utils.visible
+import com.example.hp.footballmatchschedule.adapter.TeamsAdapter
+import com.example.hp.footballmatchschedule.data.repository.MatchEventRepositoryPresenter
+import com.example.hp.footballmatchschedule.network.ApiClient
+import com.example.hp.footballmatchschedule.utils.invisible
+import com.example.hp.footballmatchschedule.utils.visible
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.AnkoLogger
-import java.util.Collections.addAll
 
-class MainActivity : AppCompatActivity(), AnkoLogger, MainView.View {
+class MainActivity : AppCompatActivity(), MainView, BottomNavigationView.OnNavigationItemSelectedListener {
 
     lateinit var mPresenter: MainPresenter
+    lateinit var mAdapter: TeamsAdapter
 
+    var mApiClient: ApiClient? = ApiClient()
     private var matchLists : MutableList<MatchEvent> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val service = TheSportDBApi.getClient().create(TheSportDBRest::class.java)
-        val request = MatchEventPresenter(service)
-        mPresenter = MainPresenter(this, request)
-        mPresenter.getFootballMatchData()
 
-        bottom_navigation.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                lastMatch -> {
-                    mPresenter.getFootballMatchData()
-                }
-                nextMatch -> {
+        initPresenter()
+        setView()
+        onAttach()
 
-                    mPresenter.getFootballUpcomingData()
-                }
+        menuBottom.setOnNavigationItemSelectedListener(this)
 
-            }
-            true
 
-        }
-        bottom_navigation.selectedItemId = lastMatch
+    }
+
+    private fun initPresenter() {
+        mPresenter = MainPresenter(MatchEventRepositoryPresenter
+            (mApiClient?.providerService())
+        )
+    }
+
+    private fun setView() {
+        val layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+
+        mAdapter = TeamsAdapter(this, matchLists)
+        rvFootBall.setHasFixedSize(true)
+        rvFootBall.layoutManager = layoutManager
+        rvFootBall.adapter = mAdapter
     }
 
     override fun hideLoading() {
@@ -60,8 +61,29 @@ class MainActivity : AppCompatActivity(), AnkoLogger, MainView.View {
     override fun displayFootballMatch(matchList: List<MatchEvent>) {
         matchLists.clear()
         matchLists.addAll(matchList)
-        val layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
-        rvFootball.layoutManager = layoutManager
-        rvFootball.adapter = TeamsAdapter(matchList,applicationContext)
+        mAdapter.notifyDataSetChanged()
     }
+
+    override fun onAttach() {
+        mPresenter.onAttach(this)
+        mPresenter.getFootballMatchData()
+    }
+
+    override fun onDettach() {
+        mPresenter.onDettach()
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.lastMatch -> {
+                mPresenter.getFootballMatchData()
+            }
+            R.id.nextMatch -> {
+                mPresenter.getFootballUpcomingData()
+            }
+        }
+
+        return true
+    }
+
 }
