@@ -1,4 +1,4 @@
-package com.example.hp.footballmatchschedule.network
+package com.example.hp.footballmatchschedule.data.remote
 
 import com.example.hp.footballmatchschedule.BuildConfig
 import okhttp3.OkHttpClient
@@ -10,7 +10,8 @@ import java.util.concurrent.TimeUnit
 
 class ApiClient {
 
-    fun providerService(): ApiService = providerRetrofit().create(ApiService::class.java)
+    fun providerService(): ApiService = providerRetrofit().create(
+        ApiService::class.java)
 
     private fun providerRetrofit(): Retrofit{
         return Retrofit.Builder()

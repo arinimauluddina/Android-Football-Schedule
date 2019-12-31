@@ -1,4 +1,4 @@
-package com.example.hp.footballmatchschedule.adapter
+package com.example.hp.footballmatchschedule.ui.main.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context

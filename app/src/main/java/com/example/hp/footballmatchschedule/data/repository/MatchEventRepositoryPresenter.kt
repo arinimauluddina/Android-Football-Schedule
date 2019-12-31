@@ -1,8 +1,8 @@
 package com.example.hp.footballmatchschedule.data.repository
 
-import com.example.hp.footballmatchschedule.network.ApiService
-import com.example.hp.footballmatchschedule.data.remote.MatchEventResponse
-import com.example.hp.footballmatchschedule.data.remote.TeamsResponse
+import com.example.hp.footballmatchschedule.data.remote.ApiService
+import com.example.hp.footballmatchschedule.data.remote.response.MatchEventResponse
+import com.example.hp.footballmatchschedule.data.remote.response.TeamsResponse
 import io.reactivex.Flowable
 
 class MatchEventRepositoryPresenter(val apiService: ApiService?) : MatchEventRepository{

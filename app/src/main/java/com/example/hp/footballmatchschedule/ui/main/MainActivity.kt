@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hp.footballmatchschedule.model.MatchEvent
 import com.example.hp.footballmatchschedule.R
-import com.example.hp.footballmatchschedule.adapter.TeamsAdapter
+import com.example.hp.footballmatchschedule.ui.main.adapter.TeamsAdapter
 import com.example.hp.footballmatchschedule.data.repository.MatchEventRepositoryPresenter
-import com.example.hp.footballmatchschedule.network.ApiClient
+import com.example.hp.footballmatchschedule.data.remote.ApiClient
 import com.example.hp.footballmatchschedule.utils.invisible
 import com.example.hp.footballmatchschedule.utils.visible
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity(), MainView, BottomNavigationView.OnNavig
     lateinit var mPresenter: MainPresenter
     lateinit var mAdapter: TeamsAdapter
 
-    var mApiClient: ApiClient? = ApiClient()
+    var mApiClient: ApiClient? =
+        ApiClient()
     private var matchLists : MutableList<MatchEvent> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {

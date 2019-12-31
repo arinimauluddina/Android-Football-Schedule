@@ -6,7 +6,7 @@ import com.example.hp.footballmatchschedule.R
 import com.example.hp.footballmatchschedule.data.repository.MatchEventRepositoryPresenter
 import com.example.hp.footballmatchschedule.model.MatchEvent
 import com.example.hp.footballmatchschedule.model.Teams
-import com.example.hp.footballmatchschedule.network.ApiClient
+import com.example.hp.footballmatchschedule.data.remote.ApiClient
 import com.example.hp.footballmatchschedule.utils.loadImage
 import kotlinx.android.synthetic.main.activity_detail.*
 
@@ -14,7 +14,8 @@ class DetailActivity : AppCompatActivity(), DetailView{
 
     lateinit var mPresenter : DetailPresenter
 
-    var mApiClient: ApiClient? = ApiClient()
+    var mApiClient: ApiClient? =
+        ApiClient()
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
